@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">justCheckers</string>
+    <string name="app_version">0.2-alpha</string>
+    <string name="project_website">http://justcheckers.org/</string>
+    <string-array name="checkers_variants">
+    	<item>American/Standard</item>
+    	<item>European</item>
+    	<item>Canadian</item>
+    </string-array>
+</resources>

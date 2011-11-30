@@ -1,0 +1,13 @@
+== Version 0.1.1 (upcoming release) ==
+* Cleaning up code for license reasons.
+* Improved Ant build automation.
+* Relicensed on software to use the GPL 3.0 license instead of the GPL 2.0.
+
+== Version 0.1.0 (2005-01-07) ==
+* Fixed up build file.
+* Working single player game.
+
+== Pre-Version 0.0.7-20040402 ==
+* Changed the directory and build structure.
+* Updated the Documentation.
+* Added GNU standard docs in the root directory.

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="Application Settings">
+	
+		<CheckBoxPreference
+			android:title="Start New Game on Startup"
+			android:defaultValue="false"
+			android:summary="Should the app automatically start a new game."
+			android:key="startGameAtStartup" />
+		
+		<!-- CheckBoxPreference
+			android:title="Save Game on Exit"
+			android:defaultValue="true"
+			android:summary="Saves the game automatically when exiting the app."
+			android:key="saveGameAtExit" /-->
+		
+	</PreferenceCategory>
+	<!-- PreferenceCategory
+		android:title="Game Settings">
+	
+		<CheckBoxPreference
+			android:title="Ask What Variant to Play"
+			android:defaultValue="true"
+			android:summary="Asks what variant of checkers you want to play, for each new game."
+			android:key="askVariantToPlay" />
+			
+		<ListPreference
+			android:title="Type of Checkers Game"
+			android:summary="Should the app automatically start a new game."
+			android:defaultValue="American/Standard"
+			android:entries="@array/checkers_variants"
+			android:entryValues="@array/checkers_variants"
+			android:key="checkersVariant" />
+		
+	</PreferenceCategory -->
+
+</PreferenceScreen>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/screen_root"
+	android:background="@drawable/backdrop"
+	android:gravity="center_horizontal"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+	
+	<ImageView android:id="@+id/app_logo"
+		android:background="#DDFFFFFF"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:padding="5dp"
+		android:src="@drawable/logo"/>
+	
+	<TableLayout android:id="@+id/menu_table"
+		android:layout_centerInParent="true"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:padding="5dp">
+		
+		<TableRow 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+			
+			<Button android:id="@+id/game_button" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_play_checkers" />
+			<Button android:id="@+id/website_button"   
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_visit_us" />
+			
+		</TableRow>
+		<TableRow 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+			
+			
+			<Button android:id="@+id/about_us_button"   
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_about_us" />
+			<Button android:id="@+id/license_button" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_license" />
+			
+		</TableRow>
+		<TableRow 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content">
+			
+			<Button android:id="@+id/settings_button" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_settings" />
+			<Button android:id="@+id/quit_button" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:text="@string/caption_quit"  />
+			
+		</TableRow>
+		
+	</TableLayout>
+
+
+</RelativeLayout>

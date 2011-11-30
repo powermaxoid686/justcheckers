@@ -1,0 +1,5 @@
+== Bugs in JustCheckers 0.1 ==
+* Artifacts of black left behind if the user tries to drag a piece of the right 
+or bottom side of the board and then brings the dragged piece back on the board.
+
+* Spits out tons of background data that ought to be visible in debug mode.
