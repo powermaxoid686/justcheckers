@@ -1,14 +1,18 @@
-== What is justCheckers? ==
-justCheckers is an open source advanced checkers game built using Java. The aim 
-of the project is to create a checkers game that:
+== About the Project ==
 
-    * handles skins and themes
-    * handles multimedia
-    * allows for network games
-    * contains a powerful yet fun computer opponent
-    * handles different checker rules 
+justCheckers is an advanced open source checkers game for Android. The aim of 
+the project is to make a game capable of supporting:
 
-Version 0.1 lets you play a game of checkers (standard American rules) against 
-another player on the same computer.
+* Skinning
+* Network Games
+* Computer Opponents
+* Various Rules and Internationalizations
 
-Project homepage: http://justcheckers.sourceforge.net/
+Project homepage: http://justcheckers.org/
+
+== Current Progress ==
+
+The justCheckers project is in the middle of a general rewrite as much of the 
+code was designed for a desktop Java application rather than an Android app.  
+Also the game engine requires a general overhaul to allow for handling of 
+various variants of checkers.

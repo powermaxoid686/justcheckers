@@ -1,6 +1,5 @@
 == Version 0.1.1 (upcoming release) ==
-* Cleaning up code for license reasons.
-* Improved Ant build automation.
+* Migrating codebase to pure-play Android from desktop Java and Swing.
 * Relicensed on software to use the GPL 3.0 license instead of the GPL 2.0.
 
 == Version 0.1.0 (2005-01-07) ==
