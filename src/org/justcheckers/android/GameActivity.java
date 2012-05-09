@@ -57,7 +57,6 @@ public class GameActivity extends Activity implements OnClickListener {
 
 	}
 
-	@Override
 	public void onClick(View view) {
 		//TODO: Stub
 	}

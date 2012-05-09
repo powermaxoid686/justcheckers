@@ -63,7 +63,6 @@ public class MenuActivity extends Activity implements OnClickListener {
 		LoggingAndStatistics.logDeviceAndSystemInfo();
 	}
 
-	@Override
 	public void onClick(View view) {
 		// Determine which view fired off this event.
 		switch (view.getId()) {
