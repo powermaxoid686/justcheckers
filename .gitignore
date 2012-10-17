@@ -1,6 +1,5 @@
 bin
 .DS_Store
-.gitignore*
 .idea
 .settings
 *.iml
