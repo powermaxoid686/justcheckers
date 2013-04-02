@@ -60,10 +60,10 @@ public class ConfigSettingsIO extends XML_IO{
 			ConfigSettingsIOReader csior = new ConfigSettingsIOReader();
 			csior.visit(rootElement);
 		}
-		catch(IOException e){
-			String msg = "Problem : " + e.getMessage();
-			Log.e("ConfigSettingsIO", msg);
-		}
+//		catch(IOException e){
+//			String msg = "Problem : " + e.getMessage();
+//			Log.e("ConfigSettingsIO", msg);
+//		}
 		catch(JDOMException e){
 			String msg = "Problem : " + getFile().toString() 
 				+ " is not a well formed XML document";

@@ -8,8 +8,22 @@
 // TODO: Add the Android Gradle plugin: https://github.com/jvoegele/gradle-android-plugin/wiki
 // TODO: Add in support for multiple projects, to allow for clean separation of projects.
 
-apply plugin: 'war'
-apply plugin: 'jetty'
+buildscript {
+    repositories {
+maven {
+            url 'http://repo1.maven.org/maven2'
+        }
+        //mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.3'
+    }
+}
+
+apply plugin: 'android'
+
+//apply plugin: 'war'
+//apply plugin: 'jetty'
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
@@ -17,6 +31,16 @@ targetCompatibility = 1.6
 // Description of the project
 description = 'justCheckers'
 version = '0.3'
+
+// Androids!!!
+android {
+    //target = "android-14"
+	compileSdkVersion 14    
+/*defaultConfig {
+        versionCode = 12
+        minSdkVersion = 8
+    } */
+}
 
 project.ext {
 	appName = 'justCheckers'
@@ -28,15 +52,15 @@ project.ext {
 }
 
 // Setup everything to work with the Eclipse friendly Web setup.
-sourceSets.main.java.srcDirs = ['src', 'gen']
-sourceSets.main.resources.srcDirs = ['res']
+//sourceSets.main.java.srcDirs = ['src', 'gen']
+//sourceSets.main.resources.srcDirs = ['res']
 //sourceSets.test.java.srcDirs = ['test-src']
 	
 // Setup build script repositories starting with Maven repositories
 repositories {
-    flatDir {
-        dirs 'WebContent/WEB-INF/lib'
-    }
+//    flatDir {
+//        dirs 'WebContent/WEB-INF/lib'
+//    }
 	maven {
 	    url 'http://repo1.maven.org/maven2'
 	}
@@ -45,8 +69,12 @@ repositories {
 // Dependency management
 dependencies {
 
+	//compile 'org.jdom:jdom:1.1'
+	//compile 'jdom:jdom:0.9'
+	compile 'jdom:jdom:0.7'
+
     // Spring Framework + SLF4J
-    compile ('org.springframework:spring-context:' + project.springVersion) {
+    /*compile ('org.springframework:spring-context:' + project.springVersion) {
         exclude module: 'commons-logging'
     }
     compile 'log4j:log4j:1.2.16'
@@ -58,26 +86,29 @@ dependencies {
     compile 'org.springframework:spring-orm:' + project.springVersion
     compile 'org.springframework:spring-webmvc:' + project.springVersion
     compile 'org.springframework:spring-parent:' + project.springVersion
-    compile 'mysql:mysql-connector-java:5.1.22'
+	*/    
+//compile 'mysql:mysql-connector-java:5.1.22'
 
     // xstream
-    compile 'com.thoughtworks.xstream:xstream:1.4.4'
+    //compile 'com.thoughtworks.xstream:xstream:1.4.4'
 
     // Hibernate + C3P0
+/*
     compile 'org.hibernate:hibernate:' + project.hibernateVersion
     compile 'org.hibernate:hibernate-annotations:' + project.hibernateVersion
     compile 'org.hibernate:hibernate-c3p0:' + project.hibernateVersion
     compile 'javassist:javassist:3.9.0.GA'
+*/
 
     // Apache Commons Libraries
-    compile 'commons-httpclient:commons-httpclient:3.1'
-    compile 'commons-lang:commons-lang:2.4'
+    //compile 'commons-httpclient:commons-httpclient:3.1'
+    //compile 'commons-lang:commons-lang:2.4'
 
     // FlexJson
-    compile 'net.sf.flexjson:flexjson:2.1'
+//    compile 'net.sf.flexjson:flexjson:2.1'
 
     // Javax Servlet and Mail APIs
-    providedCompile 'javax.servlet:servlet-api:2.5'
+    //providedCompile 'javax.servlet:servlet-api:2.5'
 }
 
 // At the end of day we just need a JAR and a WAR.
@@ -98,15 +129,16 @@ ext.sharedManifest = manifest {
 }
 
 // Build the JAR.
-jar {
-	enabled = true
-	includeEmptyDirs = false
-	manifest = sharedManifest
-	include '**/**.class'
-    exclude 'build/**'
-}
+//jar {
+//	enabled = true
+//	includeEmptyDirs = false
+//	manifest = sharedManifest
+//	include '**/**.class'
+//  exclude 'build/**'
+//}
 
 // Build WAR files that include the JAR file.  Add the resources back in.
+/*
 war {
 
     from 'webapp'
@@ -126,9 +158,9 @@ jettyRun {
 	contextPath = project.appBaseName
 	webAppSourceDirectory = new File('webapp')
 }
-
+*/
 // Run embedded Jetty setup.
-jettyRunWar {
+/*jettyRunWar {
 	httpPort = 8080
 	contextPath = project.appBaseName
-}
+}*/

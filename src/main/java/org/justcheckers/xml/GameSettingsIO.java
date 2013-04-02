@@ -62,10 +62,10 @@ public class GameSettingsIO extends XML_IO{
 			GameSettingsIOReader gsior = new GameSettingsIOReader();
 			gsior.visit(rootElement);
 		}
-		catch(IOException e){
-			String msg = "Problem : " + e.getMessage();
-			Log.e("GameSettingsIO", msg);
-		}
+		//catch(IOException e){
+		//	String msg = "Problem : " + e.getMessage();
+		//	Log.e("GameSettingsIO", msg);
+		//}
 		catch(JDOMException e){
 			String msg = "Problem : " + getFile().toString() 
 				+ " is not a well formed XML document";

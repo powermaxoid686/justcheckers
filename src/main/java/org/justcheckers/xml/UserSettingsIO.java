@@ -62,10 +62,10 @@ public class UserSettingsIO extends XML_IO{
 			UserSettingsIOReader usior = new UserSettingsIOReader();
 			usior.visit(rootElement);
 		}
-		catch(IOException e){
-			String msg = "Problem : " + e.getMessage();
-			Log.e("UserSettingsIO", msg);
-		}
+	//	catch(IOException e){
+	//		String msg = "Problem : " + e.getMessage();
+	//		Log.e("UserSettingsIO", msg);
+	//	}
 		catch(JDOMException e){
 			String msg = "Problem : " + getFile().toString() 
 				+ " is not a well formed XML document";
