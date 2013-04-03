@@ -15,7 +15,18 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 // Description of the project
-description = 'justCheckers'
+description = 'justcheckers-console'
 version = '0.3'
 
 // TODO Add in build for the terminal client.
+// TODO Base of justcheckers-core
+
+// TODO Look into potential terminal libraries...
+/*
+    Ideas: http://stackoverflow.com/questions/1321308/whats-the-best-way-to-get-text-user-interfaces-ncurses-like-functionality-in
+    - Laterna: https://code.google.com/p/lanterna/
+    - jCurses: http://sourceforge.net/projects/javacurses/
+    - TUIAWT: http://bmsi.com/tuipeer/
+    - CHARVA: http://www.pitman.co.za/projects/charva/index.html
+*/
+

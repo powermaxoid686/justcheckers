@@ -25,12 +25,12 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 // Description of the project
-description = 'justCheckers'
+description = 'justcheckers-web'
 version = '0.3'
 
 
 project.ext {
-	appName = 'justCheckers'
+	appName = 'justcheckers-web'
     appBaseName = "justcheckers"
 
     hibernateVersion = '3.5.4-Final'

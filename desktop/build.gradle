@@ -15,7 +15,7 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 // Description of the project
-description = 'justCheckers'
+description = 'justcheckers-desktop'
 version = '0.3'
 
 // TODO Add in build for the desktop client.

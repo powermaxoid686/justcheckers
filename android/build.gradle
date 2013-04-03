@@ -25,7 +25,7 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 // Description of the project
-description = 'justCheckers'
+description = 'justcheckers-android'
 version = '0.3'
 
 // Androids!!!
@@ -42,6 +42,5 @@ repositories {
 
 // Dependency management
 dependencies {
-
-	compile 'jdom:jdom:0.7' // TODO: Get rid of the JDOM and use Android's content provider.
+    compile project(':core')
 }
