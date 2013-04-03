@@ -32,6 +32,7 @@ repositories {
 // Dependency management
 dependencies {
 	compile 'jdom:jdom:0.7'
+    compile 'org.slf4j:slf4j-api:1.7.5'
     testCompile 'org.testng:testng:6.8'
 }
 

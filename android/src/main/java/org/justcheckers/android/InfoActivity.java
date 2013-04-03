@@ -19,14 +19,14 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.android;
+package org.justcheckers.android;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import main.java.org.justcheckers.common.GlobalConstants;
+import org.justcheckers.common.GlobalConstants;
 
 import android.app.Activity;
 import android.os.Bundle;

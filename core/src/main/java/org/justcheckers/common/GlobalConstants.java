@@ -19,7 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.common;
+package org.justcheckers.common;
 
 /**
  * Organizational class to keep all the constants in.

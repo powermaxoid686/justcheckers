@@ -19,7 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.android;
+package org.justcheckers.android;
 
 import android.graphics.Color;
 import android.os.Bundle;

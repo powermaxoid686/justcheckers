@@ -19,7 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.game;
+package org.justcheckers.game;
 
 /**
  * The rules for a game of checkers. This class provides a reference object for

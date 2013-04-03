@@ -19,7 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.game;
+package org.justcheckers.game;
 
 /**
  * Container for the state of the checker board during a game.

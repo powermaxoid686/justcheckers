@@ -1,4 +1,4 @@
-package main.java.org.justcheckers.xml;
+package org.justcheckers.xml;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,7 +20,8 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
-import android.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /* **************************************************************************
  *                                                                         *
@@ -69,7 +70,9 @@ public class GameSettingsIO extends XML_IO{
 		catch(JDOMException e){
 			String msg = "Problem : " + getFile().toString() 
 				+ " is not a well formed XML document";
-			Log.e("GameSettingsIO", msg);
+            // TODO Clean up...
+            Logger log = LoggerFactory.getLogger(GameSettingsIO.class);
+            log.error("GameSettingsIO", msg);
 		}
 	}
 
@@ -93,7 +96,9 @@ public class GameSettingsIO extends XML_IO{
 		catch(IOException e){
 			String msg = "Problem : couldn't output to the given file : " 
 				+ getFile().toString();
-			Log.e("GameSettingsIO", msg);
+            // TODO Clean up...
+            Logger log = LoggerFactory.getLogger(GameSettingsIO.class);
+            log.error("GameSettingsIO", msg);
 		}
 	}	
 

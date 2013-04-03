@@ -19,9 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.game;
-
-import android.graphics.Point;
+package org.justcheckers.game;
 
 /**
  * The main game handling object of GameLoop.
@@ -61,7 +59,7 @@ public class Game {
 	 * for a piece whose move has not finished after 1 jump. This point is set
 	 * to null if not in use.
 	 */
-	private final Point jumpInProgress;
+	private final IPoint jumpInProgress;
 	/** Represents the light (usually attacking) player. */
 	private Player lightPlayer;
 	/** Represents whose turn it is. */
@@ -245,7 +243,7 @@ public class Game {
 	/**
 	 * @return the jumpInProgress
 	 */
-	public Point getJumpInProgress() {
+	public IPoint getJumpInProgress() {
 		return jumpInProgress;
 	}
 }

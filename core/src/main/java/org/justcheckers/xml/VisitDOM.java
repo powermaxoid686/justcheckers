@@ -9,7 +9,7 @@
 // (at your option) any later version.      
 // ********************************************************************
 
-package main.java.org.justcheckers.xml;
+package org.justcheckers.xml;
 import java.util.Iterator;
 import org.jdom.Element;
 import org.jdom.Text;

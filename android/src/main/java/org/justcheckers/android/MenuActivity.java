@@ -19,10 +19,10 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.android;
+package org.justcheckers.android;
 
-import main.java.org.justcheckers.common.GlobalConstants;
-import main.java.org.justcheckers.common.LoggingAndStatistics;
+import org.justcheckers.common.GlobalConstants;
+import org.justcheckers.common.LoggingAndStatistics;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -59,7 +59,7 @@ public class MenuActivity extends Activity implements OnClickListener {
 		menuButton.setOnClickListener(this);
 		
 		// TODO: Move logging info in a better place.
-		LoggingAndStatistics.logApplicationInfo(this);
+//		LoggingAndStatistics.logApplicationInfo(this);
 		LoggingAndStatistics.logDeviceAndSystemInfo();
 	}
 

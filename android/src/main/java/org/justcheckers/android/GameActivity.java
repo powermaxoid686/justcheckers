@@ -19,10 +19,10 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.android;
+package org.justcheckers.android;
 
-import main.java.org.justcheckers.game.Game;
-import main.java.org.justcheckers.game.Rulebook;
+import org.justcheckers.game.Game;
+import org.justcheckers.game.Rulebook;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package main.java.org.justcheckers.xml;
+package org.justcheckers.xml;
 
 import java.util.HashMap;
 

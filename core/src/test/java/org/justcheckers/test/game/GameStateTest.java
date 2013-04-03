@@ -19,10 +19,10 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.test.game;
+package org.justcheckers.test.game;
 
-import main.java.org.justcheckers.game.Game;
-import main.java.org.justcheckers.game.Rulebook;
+import org.justcheckers.game.Game;
+import org.justcheckers.game.Rulebook;
 
 /**
  * Test the game state logic.  Tests the NQPOJO (not quite plain old Java 
