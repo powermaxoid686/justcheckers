@@ -1,6 +1,8 @@
 bin
 .DS_Store
 .idea
+.gradle
+.eclipse
 .settings
 *.iml
 classes

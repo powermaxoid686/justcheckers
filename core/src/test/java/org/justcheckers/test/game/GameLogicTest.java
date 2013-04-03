@@ -19,7 +19,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.test.game;
+package org.justcheckers.test.game;
 
 /**
  * Test the game engine logic.  Tests if the game engine can manipulate the

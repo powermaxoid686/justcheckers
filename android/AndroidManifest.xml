@@ -7,16 +7,16 @@
     <application android:icon="@drawable/icon" android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         
-        <activity android:name="main.java.org.justcheckers.android.MenuActivity">
+        <activity android:name="org.justcheckers.android.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
-		<activity android:name="main.java.org.justcheckers.android.GameActivity" />
-		<activity android:name="main.java.org.justcheckers.android.InfoActivity" />
-		<activity android:name="main.java.org.justcheckers.android.SettingsActivity" />
+		<activity android:name="org.justcheckers.android.GameActivity" />
+		<activity android:name="org.justcheckers.android.InfoActivity" />
+		<activity android:name="org.justcheckers.android.SettingsActivity" />
 		
     </application>
     

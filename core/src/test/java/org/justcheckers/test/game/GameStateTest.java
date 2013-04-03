@@ -23,6 +23,9 @@ package org.justcheckers.test.game;
 
 import org.justcheckers.game.Game;
 import org.justcheckers.game.Rulebook;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
  * Test the game state logic.  Tests the NQPOJO (not quite plain old Java 
@@ -43,7 +46,7 @@ public class GameStateTest {
 	 * Sets up a rather plain game of checkers.  Game is based on the American
 	 * rules, to make life easier.
 	 */
-	//@BeforeClass
+	@BeforeClass
 	public void setUp() {
 		this.testGame = new Game();
 	}
@@ -51,11 +54,11 @@ public class GameStateTest {
 	/** 
 	 * Test the rulebook of a default initialized game.
 	 */
-	//@Test
+	@Test
 	public void testDefaultRulebookSetup() {
 		Rulebook testRules = this.testGame.getGameRules();
 		
-		junit.framework.Assert.assertNull(testRules);
+		Assert.assertNull(testRules);
 		
 		//TODO: Test the ruleset that is gets initialized properly.
 	}

@@ -9,8 +9,6 @@
         http://www.gradle.org/docs/current/userguide/userguide_single.html
 */
 
-apply plugin: 'java'
-
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
@@ -34,14 +32,9 @@ project.ext {
     appBaseName = "justcheckers"
 
     hibernateVersion = '3.5.4-Final'
-    slf4jVersion = '1.6.0'
+    slf4jVersion = '1.7.5'
 	springVersion = '3.1.3.RELEASE'
 }
-
-// Setup everything to work with the Eclipse friendly Web setup.
-//sourceSets.main.java.srcDirs = ['src', 'gen']
-//sourceSets.main.resources.srcDirs = ['res']
-//sourceSets.test.java.srcDirs = ['test-src']
 	
 // Setup build script repositories starting with Maven repositories
 repositories {
@@ -53,12 +46,10 @@ repositories {
 // Dependency management
 dependencies {
 
-	//compile 'org.jdom:jdom:1.1'
-	//compile 'jdom:jdom:0.9'
-	compile 'jdom:jdom:0.7'
+	compile project(':core')
 
     // Spring Framework + SLF4J
-    /*compile ('org.springframework:spring-context:' + project.springVersion) {
+    compile ('org.springframework:spring-context:' + project.springVersion) {
         exclude module: 'commons-logging'
     }
     compile 'log4j:log4j:1.2.16'
@@ -70,29 +61,21 @@ dependencies {
     compile 'org.springframework:spring-orm:' + project.springVersion
     compile 'org.springframework:spring-webmvc:' + project.springVersion
     compile 'org.springframework:spring-parent:' + project.springVersion
-	*/    
-//compile 'mysql:mysql-connector-java:5.1.22'
 
     // xstream
-    //compile 'com.thoughtworks.xstream:xstream:1.4.4'
+    compile 'com.thoughtworks.xstream:xstream:1.4.4'
 
     // Hibernate + C3P0
-/*
     compile 'org.hibernate:hibernate:' + project.hibernateVersion
     compile 'org.hibernate:hibernate-annotations:' + project.hibernateVersion
     compile 'org.hibernate:hibernate-c3p0:' + project.hibernateVersion
     compile 'javassist:javassist:3.9.0.GA'
-*/
-
-    // Apache Commons Libraries
-    //compile 'commons-httpclient:commons-httpclient:3.1'
-    //compile 'commons-lang:commons-lang:2.4'
 
     // FlexJson
-//    compile 'net.sf.flexjson:flexjson:2.1'
+    compile 'net.sf.flexjson:flexjson:2.1'
 
     // Javax Servlet and Mail APIs
-    //providedCompile 'javax.servlet:servlet-api:2.5'
+    providedCompile 'javax.servlet:servlet-api:2.5'
 }
 
 // At the end of day we just need a JAR and a WAR.

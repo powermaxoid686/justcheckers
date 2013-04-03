@@ -31,6 +31,19 @@ version = '0.3'
 // Androids!!!
 android {
 	compileSdkVersion 14
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aild.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
 }
 	
 // Setup build script repositories starting with Maven repositories
@@ -43,4 +56,5 @@ repositories {
 // Dependency management
 dependencies {
     compile project(':core')
+    //compile 'org.slf4j:slf4j-android:1.6.1-RC1'
 }

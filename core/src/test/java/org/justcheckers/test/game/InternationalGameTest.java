@@ -20,7 +20,7 @@
     along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-package main.java.org.justcheckers.test.game;
+package org.justcheckers.test.game;
 
 /**
  * Regression test for a game of checkers played according to International 
