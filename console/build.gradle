@@ -1,14 +1,12 @@
 /*
-    Modular Gradle Build for justCheckers
-    ---------------------------------------------
+    Gradle Build for justCheckers - Console
+    ---------------------------------------
 
     Author: Dorian Pula (dorian.pula@amber-penguin-software.ca)
     License: AGPL v3.
 
     Gradle docs:
         http://www.gradle.org/docs/current/userguide/userguide_single.html
-    Gradle Android build docs:
-        https://sites.google.com/a/android.com/tools/tech-docs/new-build-system
 */
 
 apply plugin: 'java'
@@ -20,4 +18,4 @@ targetCompatibility = 1.6
 description = 'justCheckers'
 version = '0.3'
 
-// TODO Add in extra targets for project setup or a simplified Gradle build API.
+// TODO Add in build for the terminal client.

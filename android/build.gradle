@@ -1,0 +1,47 @@
+/*
+    Modular Gradle Build for justCheckers Android
+    ---------------------------------------------
+
+    Author: Dorian Pula (dorian.pula@amber-penguin-software.ca)
+    License: AGPL v3.
+
+    Gradle docs:
+        http://www.gradle.org/docs/current/userguide/userguide_single.html
+    Gradle Android build docs:
+        https://sites.google.com/a/android.com/tools/tech-docs/new-build-system
+*/
+
+buildscript {
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+
+    }
+    dependencies { classpath 'com.android.tools.build:gradle:0.3' }
+}
+
+apply plugin: 'android'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+// Description of the project
+description = 'justCheckers'
+version = '0.3'
+
+// Androids!!!
+android {
+	compileSdkVersion 14
+}
+	
+// Setup build script repositories starting with Maven repositories
+repositories {
+	maven {
+	    url 'http://repo1.maven.org/maven2'
+	}
+}
+
+// Dependency management
+dependencies {
+
+	compile 'jdom:jdom:0.7' // TODO: Get rid of the JDOM and use Android's content provider.
+}
