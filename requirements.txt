@@ -1,0 +1,3 @@
+invoke
+PySide==1.2.2
+

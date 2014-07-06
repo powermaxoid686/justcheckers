@@ -5,7 +5,7 @@ justCheckers - README!
 About the Project
 -----------------
 
-*justCheckers* is an advanced open source checkers game for Android. The aim of 
+*justCheckers* is an advanced, cross-platform  open source checkers game. The aim of 
 the project is to make a game capable of supporting:
 
 - Skinning
@@ -23,4 +23,5 @@ Links
 -----
 
 - Project website: http://justcheckers.org/
-- Project @ Github: https://github.com/dorianpula/justcheckers 
+- Project @ Github: https://github.com/dorianpula/justcheckers
+
