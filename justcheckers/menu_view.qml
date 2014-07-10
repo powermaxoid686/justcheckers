@@ -1,12 +1,12 @@
 import QtQuick 1.0
 
 Rectangle {
-    width: 200
-    height: 200
+    width: 800
+    height: 600
     color: "red"
 
     Text {
-        text: "justCheckers"
+        text: ""
         anchors.centerIn: parent
     }
 }

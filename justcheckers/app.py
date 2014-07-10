@@ -1,8 +1,9 @@
 import sys
 
-from PySide.QtCore import *
-from PySide.QtGui import *
+from PySide.QtCore import QUrl
+from PySide.QtGui import QApplication
 from PySide.QtDeclarative import QDeclarativeView
+
 
 def main():
     # Create app
