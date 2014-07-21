@@ -1,30 +1,31 @@
 import os
 import sys
 
+from PySide.QtCore import QCoreApplication
 from PySide.QtGui import QWidget, QApplication, QLabel, QPushButton, QDesktopWidget, QVBoxLayout
 
 
 class MenuScreen(QWidget):
     # TODO Divide up into separate widgets for the window and its contents.
-    # TODO Figure out testing mechanism for PySide UIs.
+    # TODO Setup functional testing with PySide.QtTest
 
-    def __init__(self, app):
+    def __init__(self):
         super(MenuScreen, self).__init__()
         self.setWindowTitle('justCheckers')
         self.setGeometry(300, 300, 800, 600)
         self.setup_components()
-        self.app = app
         self.center()
 
     def setup_components(self):
-        self.systemLabel = QLabel(self.get_system_info(), self)
-        self.exitButton = QPushButton('Exit', self)
-        self.exitButton.clicked.connect(self.exit_app)
+        """Setup the components that make up the widget."""
+        print(self.get_system_info())
+        self.exit_button = QPushButton('Exit', self)
+        self.exit_button.clicked.connect(self.exit_app)
 
         widget_layout = QVBoxLayout(self)
         widget_layout.addWidget(self.systemLabel)
         widget_layout.addStretch()
-        widget_layout.addWidget(self.exitButton)
+        widget_layout.addWidget(self.exit_button)
         widget_layout.addStretch()
         self.setLayout(widget_layout)
 
@@ -44,13 +45,14 @@ class MenuScreen(QWidget):
         self.move(widget_rectangle.topLeft())
 
     def exit_app(self):
-        self.app.quit()
+        """Exits the application."""
+        QCoreApplication.instance().exit()
 
 
 def main():
     # TODO Should be moved out into a separate module
     app = QApplication(sys.argv)
-    view = MenuScreen(app)
+    view = MenuScreen()
     view.show()
     app.exec_()
     sys.exit(0)
