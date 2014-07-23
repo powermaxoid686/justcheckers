@@ -1,0 +1,2 @@
+# Requirements for the web front for justCheckers
+Flask>=0.10
