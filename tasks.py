@@ -18,4 +18,3 @@ def clean():
     """Clean generated files."""
     run('rm *.pyc')
     run('rm _build -rv')
-

@@ -23,7 +23,6 @@ class MenuScreen(QWidget):
         self.exit_button.clicked.connect(self.exit_app)
 
         widget_layout = QVBoxLayout(self)
-        widget_layout.addWidget(self.systemLabel)
         widget_layout.addStretch()
         widget_layout.addWidget(self.exit_button)
         widget_layout.addStretch()
@@ -32,7 +31,7 @@ class MenuScreen(QWidget):
     @staticmethod
     def get_system_info():
         """Retrieve information about the system."""
-        message = 'I am running on {os}.\n My screen is {height}x{width}'
+        message = 'I am running on {os}.\nMy screen is {height}x{width}'
         geometry = QDesktopWidget().availableGeometry()
         os_sys = ' '.join(os.uname())
         return message.format(os=os_sys, height=geometry.height(), width=geometry.width())
