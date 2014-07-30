@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="template_capture_amounts">x0</string>    
-    <string name="template_current_player">Current Player</string>
-    <string name="template_opposing_player">Opposing Player</string>
-</resources>    
