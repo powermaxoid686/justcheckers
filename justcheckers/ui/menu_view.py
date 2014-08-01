@@ -17,21 +17,14 @@
 # Please share and enjoy!
 #
 
-"""
-Main window for the game.
-
-:copyright: Copyright 2013, Dorian Pula <dorian.pula@amber-penguin-software.ca>
-:license: GPL v3+
-"""
-
-import os
-import sys
 
 from PySide import QtCore
 from PySide import QtGui
 
 
 class MainMenuView(QtGui.QWidget):
+    """Main menu for the game."""
+
     # TODO Setup functional testing with PySide.QtTest
 
     def __init__(self):
@@ -40,7 +33,6 @@ class MainMenuView(QtGui.QWidget):
 
     def setup_components(self):
         """Setup the components that make up the widget."""
-        print(self.get_system_info())
         self.new_game = QtGui.QPushButton('&New Game', self)
         self.open_game = QtGui.QPushButton('&Open Game', self)
         self.save_game = QtGui.QPushButton('&Save Game', self)
@@ -62,19 +54,6 @@ class MainMenuView(QtGui.QWidget):
         widget_layout.addWidget(self.exit_button)
         widget_layout.addStretch()
         self.setLayout(widget_layout)
-
-    @staticmethod
-    def get_system_info():
-        """Retrieve information about the system."""
-        message = 'I am running on {os}.\nMy screen is {height}x{width}'
-        geometry = QtGui.QDesktopWidget().availableGeometry()
-
-        os_sys = sys.platform
-        if sys.platform == 'posix':
-            os_name, _, _, _, os_arch = os.uname()
-            os_sys = '{name} {arch}'.format(name=os_name, arch=os_arch)
-
-        return message.format(os=os_sys, height=geometry.height(), width=geometry.width())
 
     def exit_app(self):
         """Exits the application."""

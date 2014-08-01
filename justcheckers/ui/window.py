@@ -17,13 +17,6 @@
 # Please share and enjoy!
 #
 
-"""
-Main window for the game.
-
-:copyright: Copyright 2013, Dorian Pula <dorian.pula@amber-penguin-software.ca>
-:license: GPL v3+
-"""
-
 import os
 
 from PySide import QtGui
@@ -32,6 +25,7 @@ from justcheckers.ui.menu_view import MainMenuView
 
 
 class DesktopGameWindow(QtGui.QMainWindow):
+    """Main window for the game."""
     # TODO Setup functional testing with PySide.QtTest
 
     def __init__(self):
@@ -45,6 +39,7 @@ class DesktopGameWindow(QtGui.QMainWindow):
         self.center()
 
     def add_backdrop(self):
+        """Adds a backdrop image to the game."""
         tile = QtGui.QPixmap(self.path_to_asset('backdrop.jpg'))
         palette = QtGui.QPalette()
         palette.setBrush(QtGui.QPalette.Background, tile)
