@@ -17,12 +17,11 @@
 # Please share and enjoy!
 #
 
-import os
 
 from PySide import QtGui
 
 from justcheckers.ui.menu_view import MainMenuView
-
+from justcheckers.ui import util
 
 class DesktopGameWindow(QtGui.QMainWindow):
     """Main window for the game."""
@@ -33,14 +32,14 @@ class DesktopGameWindow(QtGui.QMainWindow):
         self.setWindowTitle('justCheckers')
         self.setGeometry(300, 300, 800, 600)
 
-        self.setWindowIcon(QtGui.QIcon(self.path_to_asset('icon.png')))
+        self.setWindowIcon(QtGui.QIcon(util.path_to_asset('icon.png')))
         self.setup_components()
         self.add_backdrop()
         self.center()
 
     def add_backdrop(self):
         """Adds a backdrop image to the game."""
-        tile = QtGui.QPixmap(self.path_to_asset('backdrop.jpg'))
+        tile = QtGui.QPixmap(util.path_to_asset('backdrop.jpg'))
         palette = QtGui.QPalette()
         palette.setBrush(QtGui.QPalette.Background, tile)
         self.setPalette(palette)
@@ -58,16 +57,4 @@ class DesktopGameWindow(QtGui.QMainWindow):
         widget_rectangle.moveCenter(center_point)
         self.move(widget_rectangle.topLeft())
 
-    IMAGE_ASSETS = 'images'
-    TEXT_ASSETS = 'assets'
 
-    @staticmethod
-    def path_to_asset(filename, asset_type=IMAGE_ASSETS):
-        """
-        Helper utility for getting the path to an asset.
-
-        :param filename: The filename of the asset.
-        :param asset_type: The type of asset.  Defaults to images.
-        :return: The path to the asset.
-        """
-        return os.path.join(os.path.dirname(__file__), os.pardir, asset_type.lower(), filename)
