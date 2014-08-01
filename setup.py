@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 import re
 
@@ -17,12 +18,12 @@ def gather_requirements(filename='requirements.txt'):
             for requirement in raw_requirements
             if requirement.strip() and not re.match('#|-(?!e)', requirement)]
 
+
 setup(
     name='justcheckers',
     version='0.5.0',
-    packages=['justcheckers'],
     url='http://justcheckers.org/',
-    license='Affero GPL v3',
+    license='GPL v3',
     author='Dorian Pula',
     author_email='dorian.pula@gmail.com',
     description='An advanced cross-platform checkers game.',
@@ -32,6 +33,33 @@ setup(
         'web': gather_requirements('requirements/web.txt'),
     },
 
-    packages=find_packages('justcheckers'),
+    packages=find_packages(exclude=['test']),
     include_package_data=True,
+
+    entry_points={
+        'console_scripts': [
+            'justcheckers = justcheckers.app:main',
+        ]
+    },
+
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Environment :: Console',
+        'Environment:: MacOS',
+        'Environment :: Web Environment',
+        'Environment :: Win32 (MS Windows)',
+        'Environment :: X11 Applications :: Qt',
+        'Intended Audience:: End Users / Desktop',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: POSIX :: Linux',
+        'Operating System :: Unix',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Topic :: Games/Entertainment',
+        'Topic :: Games/Entertainment :: Board Games',
+    ],
 )
+
