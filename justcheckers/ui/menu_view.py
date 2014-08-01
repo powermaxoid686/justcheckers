@@ -33,28 +33,16 @@ class MainMenuView(QtGui.QWidget):
 
     def setup_components(self):
         """Setup the components that make up the widget."""
+        self.init_justcheckers_logo()
 
-        # TODO Create a more compelling looking logo label, well scaled.
-        self.logo_label = QtGui.QLabel('justCheckers', self)
-        logo_pixmap = QtGui.QPixmap(util.path_to_asset('logo.png'))
-        # logo_pixmap.fill(QtGui.QColor(255, 255, 255, 125))
+        self.new_game = self.create_menu_button('&New Game')
+        self.open_game = self.create_menu_button('&Open Game')
+        self.save_game = self.create_menu_button('&Save Game')
 
-        self.logo_label.setPixmap(logo_pixmap)
-
-        self.new_game = QtGui.QPushButton('&New Game', self)
-        self.new_game.setEnabled(False)
-        self.open_game = QtGui.QPushButton('&Open Game', self)
-        self.open_game.setEnabled(False)
-        self.save_game = QtGui.QPushButton('&Save Game', self)
-        self.save_game.setEnabled(False)
-        # TODO Render buttons greyed out.
-
-        self.about_game = QtGui.QPushButton('About Game', self)
-        self.about_game.setEnabled(False)
+        self.about_game = self.create_menu_button('About Game')
         # TODO Add links to site and display license inside about game widget.
-        self.settings = QtGui.QPushButton('Settings', self)
-        self.settings.setEnabled(False)
-        self.exit_button = QtGui.QPushButton('Exit', self)
+        self.settings = self.create_menu_button('Settings')
+        self.exit_button = self.create_menu_button('Exit', enabled=True)
         self.exit_button.clicked.connect(self.exit_app)
 
         widget_layout = QtGui.QVBoxLayout(self)
@@ -69,6 +57,26 @@ class MainMenuView(QtGui.QWidget):
         widget_layout.addWidget(self.exit_button)
         widget_layout.addStretch()
         self.setLayout(widget_layout)
+
+    def init_justcheckers_logo(self):
+
+        logo_pixmap = QtGui.QPixmap(util.path_to_asset('logo.png'))
+        view_size = self.size()
+        image_size = logo_pixmap.size()
+        logo_pixmap = logo_pixmap.scaledToWidth(view_size.width())
+        logo_pixmap.fill(QtGui.QColor(255, 255, 255, 125))
+        logo_pixmap.load(util.path_to_asset('logo.png'))
+
+        self.logo_label = QtGui.QLabel('justCheckers', self)
+        self.logo_label.setPixmap(logo_pixmap)
+        self.logo_label.setAlignment(QtCore.Qt.AlignCenter)
+
+    def create_menu_button(self, label, enabled=False):
+        """Creates a menu button with a consistent look & feel."""
+        menu_button = QtGui.QPushButton(label, self)
+        menu_button.setFixedHeight(50)
+        menu_button.setEnabled(enabled)
+        return menu_button
 
     def exit_app(self):
         """Exits the application."""
