@@ -22,6 +22,7 @@ from PySide import QtGui
 
 from justcheckers.ui import util
 
+
 class MainMenuView(QtGui.QWidget):
     """Main menu for the game."""
 
@@ -59,13 +60,10 @@ class MainMenuView(QtGui.QWidget):
         self.setLayout(widget_layout)
 
     def init_justcheckers_logo(self):
-
-        logo_pixmap = QtGui.QPixmap(util.path_to_asset('logo.png'))
+        """Initializes and places the logo as a header on top of the menu."""
+        logo_pixmap = QtGui.QPixmap(util.path_to_asset('frosted_logo.png'))
         view_size = self.size()
-        image_size = logo_pixmap.size()
         logo_pixmap = logo_pixmap.scaledToWidth(view_size.width())
-        logo_pixmap.fill(QtGui.QColor(255, 255, 255, 125))
-        logo_pixmap.load(util.path_to_asset('logo.png'))
 
         self.logo_label = QtGui.QLabel('justCheckers', self)
         self.logo_label.setPixmap(logo_pixmap)
@@ -78,6 +76,7 @@ class MainMenuView(QtGui.QWidget):
         menu_button.setEnabled(enabled)
         return menu_button
 
-    def exit_app(self):
+    @staticmethod
+    def exit_app():
         """Exits the application."""
         QtCore.QCoreApplication.instance().exit()
