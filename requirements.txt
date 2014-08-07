@@ -1,5 +1,4 @@
-# Task management
-invoke
+# Requirements for basic operation of the game.
 
 # User interface
 PySide==1.2.2

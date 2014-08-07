@@ -1,4 +1,15 @@
 # Requirements for developing the justCheckers app
+
+# Task management
+invoke>=0.7.0
+
+# Sphinx and Pygments
 Sphinx>=1.2.2
+# TODO Remove after the next release of releases.
+-e git+https://github.com/bitprophet/releases@master#egg=releases
+
+# Testing
+mock>=1.0.1
 nose>=1.3.0
-flake8
+coverage>=3.6,<3.7
+flake8>=2.1.0
