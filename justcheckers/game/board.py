@@ -1,25 +1,21 @@
-/*****************************************************************************
- 	Board.java -- Container for the state of the board of a game.
- *****************************************************************************
-
- *****************************************************************************
-	This file is part of justCheckers.
-
-    justCheckers is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    justCheckers is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
- *****************************************************************************/
-
-package org.justcheckers.game;
+#
+# Copyright (c) 2014 Dorian Pula <dorian.pula@amber-penguin-software.ca>
+#
+# justCheckers is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation, either version 3 of the License,
+# or (at your option) any later version.
+#
+# justCheckers is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with justCheckers.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Please share and enjoy!
+#
 
 /**
  * Container for the state of the checker board during a game.
