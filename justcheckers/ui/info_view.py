@@ -38,7 +38,7 @@ class InfoView(QtGui.QWidget):
     def setup_components(self):
 
         self.info_viewer = QtWebKit.QWebView(self)
-        about_html = self.generate_html_from_markdown('readme.txt')
+        about_html = self.generate_html_from_markdown('credits.md')
         self.info_viewer.setHtml(about_html)
 
         exit_button = QtGui.QPushButton('Back to Menu', self)
@@ -69,11 +69,11 @@ class InfoView(QtGui.QWidget):
         self.parentWidget().setCurrentIndex(0)
 
     def display_about_info(self):
-        about_html = self.generate_html_from_markdown('readme.txt')
+        about_html = self.generate_html_from_markdown('credits.md')
         self.info_viewer.setHtml(about_html)
 
     def display_license_info(self):
-        license_html = self.generate_html_from_markdown('gpl_3_license.txt')
+        license_html = self.generate_html_from_markdown('license.md')
         self.info_viewer.setHtml(license_html)
 
     def generate_html_from_markdown(self, filename):
