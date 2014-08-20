@@ -1,23 +1,17 @@
-======================
-justCheckers - README!
-======================
+justCheckers - README
+=====================
 
 About the Project
 -----------------
 
-*justCheckers* is an advanced, cross-platform  open source checkers game. The aim of 
-the project is to make a game capable of supporting:
+*justCheckers* is an advanced, cross-platform, libre source checkers game. The project's aim is to make a game capable
+of supporting:
 
 - Skinning
 - Network Games
 - Computer Opponents
 - Various Rules and Internationalizations
-- Cross platform (both OS and input types)
-
-Current Progress
-----------------
-
-The *justCheckers* project is in the middle of a general overhaul of the codebase to allow for a more modern approach.  Both the game engine needs to get decoupled from the platform specific code.
+- Multiple Desktop and Mobile OS
 
 Links
 -----
