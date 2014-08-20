@@ -59,7 +59,7 @@ class Board(object):
 
     def __init__(self, size=rules.Rules.STANDARD_BOARD_SIZE, mirrored=False):
         self.board_size = size
-        self._board = [[]]
+        self._board = [[Square.EMPTY for y in xrange(0, self.board_size)] for x in xrange(0, self.board_size)]
 
         # /**
         #  * Clears the board of pieces. Creates a brand new empty board already laid
@@ -324,30 +324,31 @@ class Board(object):
     #  * @return A string representing the current board state.
     #  */
     def __str__(self):
+
         # Prepare for output with a nice looking to banner.
         output = "   "
         for row in xrange(0, self.board_size):
             if row < 9:
-                output = '{}{}{}'.format(output, "  ", row + 1)
+                output = '{} {} '.format(output, row + 1)
             else:
-                output = '{}{}{}'.format(output, " ", row + 1)
+                output = '{} {}'.format(output, row + 1)
         output = output + "\n\n"
 
         output_atom = {
-            Square.WHITE: "## ",
-            Square.EMPTY: "__ ",
-            Square.LIGHT_PAWN: "LP ",
-            Square.LIGHT_KING: "LK ",
-            Square.DARK_PAWN: "DP ",
-            Square.DARK_KING:"DK ",
+            Square.WHITE: u"\u2588\u2588\u2588",
+            Square.EMPTY: u"   ",
+            Square.LIGHT_PAWN: u" \u2659 ",
+            Square.LIGHT_KING: u" \u2654 ",
+            Square.DARK_PAWN: u" \u265F ",
+            Square.DARK_KING: u" \u265A ",
         }
 
         # Go row by row, printing out the row number and the board's state.
         for row in xrange(0, self.board_size):
             if row < 9:
-                output = '{}{}{}'.format(output, "  ", row + 1)
+                output = u'{}{}  '.format(output, row + 1)
             else:
-                output = '{}{}{}'.format(output, " ", row + 1)
+                output = u'{}{} '.format(output, row + 1)
 
             # // Get current row's state.
             for col in xrange(0, self.board_size):
