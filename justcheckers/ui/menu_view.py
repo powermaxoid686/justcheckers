@@ -36,7 +36,9 @@ class MainMenuView(QtGui.QWidget):
         """Setup the components that make up the widget."""
         self.init_justcheckers_logo()
 
-        self.new_game = self.create_menu_button('&New Game')
+        self.new_game = self.create_menu_button('&New Game', enabled=True)
+        self.new_game.clicked.connect(self.switch_to_game_view)
+
         self.open_game = self.create_menu_button('&Open Game')
         self.save_game = self.create_menu_button('&Save Game')
 
@@ -83,5 +85,9 @@ class MainMenuView(QtGui.QWidget):
         """Exits the application."""
         QtCore.QCoreApplication.instance().exit()
 
+    # TODO Remove magic numbers
     def switch_to_about_view(self):
         self.parentWidget().setCurrentIndex(1)
+
+    def switch_to_game_view(self):
+            self.parentWidget().setCurrentIndex(2)

@@ -3,6 +3,7 @@
 # User interface
 PySide==1.2.2
 Markdown==2.4.1
+PyOpenGL
 
 # Core logic
 enum34==0.9.19

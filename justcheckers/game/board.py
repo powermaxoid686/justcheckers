@@ -313,17 +313,13 @@ class Board(object):
         # TODO: Implement the suicide game setup.
         pass
 
-    # /**
-    #  * Returns a string to represent the board state. This string is formatted
-    #  * for use as a simple board display in the command window.
-    #  *
-    #  * <b>Legend</b> ## - White space which the piece can not move on to. __ -
-    #  * An empty space. LP - A light pawn. LK - A light king. DP - A dark pawn.
-    #  * DK - A dark king.
-    #  *
-    #  * @return A string representing the current board state.
-    #  */
     def __str__(self):
+        """
+        Override __str__ to get back an elegant unicode representation of the board.
+
+        :returns: A text representation of the current state of the board.
+        """
+        # TODO Fix up string building setup.  Separate into smaller component functions.
 
         # Prepare for output with a nice looking to banner.
         output = "   "
@@ -350,7 +346,7 @@ class Board(object):
             else:
                 output = u'{}{} '.format(output, row + 1)
 
-            # // Get current row's state.
+            # Get current row's state.
             for col in xrange(0, self.board_size):
                 output = output + output_atom[self._board[row][col]]
 
