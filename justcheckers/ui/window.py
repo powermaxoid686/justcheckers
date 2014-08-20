@@ -20,6 +20,7 @@
 
 from PySide import QtGui
 
+from justcheckers.ui.info_view import InfoView
 from justcheckers.ui.menu_view import MainMenuView
 from justcheckers.ui import util
 
@@ -48,6 +49,7 @@ class DesktopGameWindow(QtGui.QMainWindow):
         """Setup the components that make up the widget."""
         self.view_stack = QtGui.QStackedWidget()
         self.view_stack.addWidget(MainMenuView())
+        self.view_stack.addWidget(InfoView())
         self.setCentralWidget(self.view_stack)
 
     def center(self):

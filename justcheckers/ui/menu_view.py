@@ -40,7 +40,9 @@ class MainMenuView(QtGui.QWidget):
         self.open_game = self.create_menu_button('&Open Game')
         self.save_game = self.create_menu_button('&Save Game')
 
-        self.about_game = self.create_menu_button('About Game')
+        self.about_game = self.create_menu_button('About Game', enabled=True)
+        self.about_game.clicked.connect(self.switch_to_about_view)
+
         # TODO Add links to site and display license inside about game widget.
         self.settings = self.create_menu_button('Settings')
         self.exit_button = self.create_menu_button('Exit', enabled=True)
@@ -80,3 +82,6 @@ class MainMenuView(QtGui.QWidget):
     def exit_app():
         """Exits the application."""
         QtCore.QCoreApplication.instance().exit()
+
+    def switch_to_about_view(self):
+        self.parentWidget().setCurrentIndex(1)
