@@ -18,97 +18,26 @@
 #
 
 from PySide import QtGui
-
-from OpenGL import GL
-from PySide.QtOpenGL import QGLWidget
-
-from OpenGL.GL import *
-from OpenGL.GLUT import *
-from OpenGL.GLU import *
+from PySide import QtCore
 
 
-# Install freeglut3 for the example.
-class SphereTestGLWidget(QGLWidget):
-    
-    "GUI rectangle that displays a teapot"
-    def initializeGL(self):
-        "runs once, after OpenGL context is created"
-        glEnable(GL_DEPTH_TEST)
-        glClearColor(1,1,1,0) # white background
-        glShadeModel(GL_SMOOTH)
-        glEnable(GL_COLOR_MATERIAL)
-        glMaterialfv(GL_FRONT, GL_SPECULAR, [1.0, 1.0, 1.0, 1.0])
-        glMaterialfv(GL_FRONT, GL_SHININESS, [50.0])
-        glLightfv(GL_LIGHT0, GL_POSITION, [1.0, 1.0, 1.0, 0.0])
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, [1.0, 1.0, 1.0, 1.0])
-        glLightfv(GL_LIGHT0, GL_SPECULAR, [1.0, 1.0, 1.0, 1.0])
-        glLightModelfv(GL_LIGHT_MODEL_AMBIENT, [1.0, 1.0, 1.0, 0.0])
-        glEnable(GL_LIGHTING)
-        glEnable(GL_LIGHT0)
-        self.orientCamera()
-        glutInit()
-        gluLookAt(0, 0, -10,  # camera
-                  0, 0, 0,  # focus
-                  0, 1, 0)  # up vector
-        super(SphereTestGLWidget, self).initializeGL()
+class GameBoardWidget(QtGui.QGraphicsView):
+    def __init__(self, scene):
+        super(GameBoardWidget, self).__init__(scene)
+        self.scene = scene
 
-    def paintGL(self):
-        "runs every time an image update is needed"
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        self.paintTeapot()
-        super(SphereTestGLWidget, self).paintGL()
+    def create_checker_board(self):
 
-    def resizeGL(self, w, h):
-        "runs every time the window changes size"
-        glViewport(0, 0, w, h)
-        self.orientCamera()
-        super(SphereTestGLWidget, self).resizeGL(w, h)
+        redness = QtGui.QBrush(color=QtCore.Qt.darkRed)
+        redness_pen = QtGui.QPen(color=QtCore.Qt.darkRed)
+        self.scene.addRect(10, 10, 50, 50, pen=redness_pen, brush=redness)
+        self.scene.addText('Hello world...')
 
-    def orientCamera(self):
-      "update projection matrix, especially when aspect ratio changes"
-      glPushAttrib(GL_TRANSFORM_BIT) # remember current GL_MATRIX_MODE
-      glMatrixMode(GL_PROJECTION)
-      glLoadIdentity()
-      gluPerspective (60.0, self.width()/float(self.height()), 1.0, 10.0)
-      glPopAttrib() # restore GL_MATRIX_MODE
-
-    def paintTeapot(self):
-      glPushAttrib(GL_POLYGON_BIT) # remember current GL_FRONT_FACE indictor
-      glFrontFace(GL_CW) # teapot polygon vertex order is opposite to modern convention
-      glColor3f(0.2,0.2,0.5) # paint it blue
-      glutSolidTeapot(3.0) # thank you GLUT tool kit
-      glPopAttrib() # restore GL_FRONT_FACE
-
-
-class GameBoardWidget(QGLWidget):
-    def __init__(self, parent):
-        QGLWidget.__init__(self, parent)
-
-    def initializeGL(self):
-        GL.glEnable(GL.GL_DEPTH_TEST)
-        GL.glClearColor(0, 1, 0, 1)
-        super(GameBoardWidget, self).initializeGL()
-
-    def paintGL(self):
-        GL.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT)
-        self.paint_checkboard_state()
-        super(GameBoardWidget, self).paintGL()
-
-    def resizeGL(self, width, height):
-        """Resizes the game board whenever the window is resized.
-
-        :param width: The width of the newly sized QGLWidget.
-        :param width: The height of the newly sized of QGLWidget.
-        """
-        GL.glViewport(0, 0, width, height)
-        super(GameBoardWidget, self).resizeGL(width, height)
-
-    def paint_checkboard_state(self):
-        pass
+    # TODO Add in number of captured pieces and whose turn it is.
 
 
 class GameView(QtGui.QWidget):
-    """Info viewer for the game's license, etc."""
+    """Game viewer for the game's license, etc."""
 
     # TODO Setup functional testing with PySide.QtTest
 
@@ -117,9 +46,12 @@ class GameView(QtGui.QWidget):
         self.setup_components()
 
     def setup_components(self):
+        self.game_board_scene = QtGui.QGraphicsScene()
+        self.game_board = GameBoardWidget(self.game_board_scene)
 
-        # self.game_board = SphereTestGLWidget(self)
-        self.game_board = GameBoardWidget(self)
+        self.game_board.create_checker_board()
+        self.game_board.show()
+
 
         exit_button = QtGui.QPushButton('Back to Menu', self)
         exit_button.setFixedHeight(50)
@@ -127,8 +59,6 @@ class GameView(QtGui.QWidget):
 
         widget_layout = QtGui.QVBoxLayout(self)
         widget_layout.addWidget(self.game_board)
-
-        # TODO Add in number of captured pieces and whose turn it is.
 
         button_row = QtGui.QHBoxLayout(self)
         button_row.addWidget(exit_button)
