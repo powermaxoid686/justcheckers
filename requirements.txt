@@ -1,9 +1,9 @@
 # Requirements for basic operation of the game.
 
 # User interface
-PySide==1.2.2
+kivy
 Markdown==2.4.1
-PyOpenGL>=3.0.0
 
 # Core logic
 enum34==0.9.19
+
