@@ -89,13 +89,19 @@ class BoardSquare(QtGui.QGraphicsItem):
         painter.drawRoundedRect(0, 0, 50, 50, 25, 25, QtCore.Qt.RelativeSize)
 
         # Draw the underlying piece.
-        # TODO Escape if empty square.
+        if (self.game_board.is_empty(self.coordinates.x, self.coordinates.y)
+                or self.game_board.is_illegal_space(self.coordinates.x, self.coordinates.y)):
+            return
 
         # TODO Add in a phantom outline of piece when dragging and dropping between board spaces
-        self.token_colour = QtGui.QColor(QtCore.Qt.blue)
+        self.token_colour = QtGui.QColor(QtCore.Qt.darkGray)
         if self.game_board.is_light(self.coordinates.x, self.coordinates.y):
-            self.token_colour = QtGui.QColor(QtCore.Qt.lightBlue)
+            self.token_colour = QtGui.QColor(QtCore.Qt.white)
 
+        painter.setBrush(self.token_colour)
+        painter.drawEllipse(5, 5, 40, 40)
+        if self.game_board.is_king(self.coordinates.x, self.coordinates.y):
+            painter.drawText(15, 15, 'King')
 
 
 class GameBoardWidget(QtGui.QGraphicsView):
@@ -120,8 +126,6 @@ class GameBoardWidget(QtGui.QGraphicsView):
 
                 board_coords = Coordinates(x=x, y=y)
                 current_coords = Coordinates(x=55 * board_coords.x, y=55 * board_coords.y)
-                self.scene.addRect(current_coords.x, current_coords.y, 50, 50, pen=redness_pen, brush=redness)
-
                 item = BoardSquare(board_coords, game_board)
                 item.setPos(current_coords.x, current_coords.y)
                 self.scene.addItem(item)
