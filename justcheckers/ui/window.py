@@ -36,7 +36,7 @@ class DesktopGameWindow(QtGui.QMainWindow):
 
         self.setWindowIcon(QtGui.QIcon(util.path_to_asset('icon.png')))
         self.setup_components()
-        self.add_backdrop()
+        # self.add_backdrop()  # TODO Add back with a nicer (animated?) backdrop
         self.center()
 
     def add_backdrop(self):

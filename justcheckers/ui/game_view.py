@@ -17,8 +17,85 @@
 # Please share and enjoy!
 #
 
+from collections import namedtuple
+
 from PySide import QtGui
 from PySide import QtCore
+
+from justcheckers.game import board
+
+
+Coordinates = namedtuple('Coordinates', ['x', 'y'])
+
+
+class BoardSquare(QtGui.QGraphicsItem):
+    """A single graphical unit that makes up the checkerboard."""
+
+    def __init__(self, coordinates, game_board, parent=None):
+        """
+        Create a board square.
+
+        :param coordinates: A tuple with the row and column of board.
+        :param game_board: A reference to the game board to display the current state of the game.
+        :param parent: The parent widget for this graphical item.
+        :return: A graphical item representing a specific square on a checkerboard.
+        """
+        super(BoardSquare, self).__init__(parent)
+        self.color = QtGui.QColor(QtCore.Qt.blue)
+        self.pixmap = None
+        # self.dragOver = False
+
+        # TODO Add validation that coordinates match a real active game.
+        self.coordinates = coordinates
+        self.game_board = game_board
+
+        # self.setAcceptDrops(True)
+
+    # def dragEnterEvent(self, event):
+    #     if event.mimeData().hasColor() or \
+    #             (isinstance(self, RobotHead) and event.mimeData().hasImage()):
+    #         event.setAccepted(True)
+    #         self.dragOver = True
+    #         self.update()
+    #     else:
+    #         event.setAccepted(False)
+    #
+    # def dragLeaveEvent(self, event):
+    #     self.dragOver = False
+    #     self.update()
+    #
+    # def dropEvent(self, event):
+    #     self.dragOver = False
+    #     if event.mimeData().hasColor():
+    #         self.color = QtGui.QColor(event.mimeData().colorData())
+    #     elif event.mimeData().hasImage():
+    #         self.pixmap = QtGui.QPixmap(event.mimeData().imageData())
+    #
+    #     self.update()
+
+    def boundingRect(self):
+        # return QtCore.QRectF(-15, -50, 30, 50)
+        return QtCore.QRectF()
+
+    def paint(self, painter, option, widget=None):
+
+        # Draw the board
+        self.color = QtGui.QColor(QtCore.Qt.black)
+        if self.game_board.is_illegal_space(self.coordinates.x, self.coordinates.y):
+            self.color = QtGui.QColor(QtCore.Qt.white)
+
+        painter.setPen(QtGui.QPen(QtCore.Qt.darkYellow, 2))
+        painter.setBrush(self.color)
+        painter.drawRoundedRect(0, 0, 50, 50, 25, 25, QtCore.Qt.RelativeSize)
+
+        # Draw the underlying piece.
+        # TODO Escape if empty square.
+
+        # TODO Add in a phantom outline of piece when dragging and dropping between board spaces
+        self.token_colour = QtGui.QColor(QtCore.Qt.blue)
+        if self.game_board.is_light(self.coordinates.x, self.coordinates.y):
+            self.token_colour = QtGui.QColor(QtCore.Qt.lightBlue)
+
 
 
 class GameBoardWidget(QtGui.QGraphicsView):
@@ -28,10 +105,27 @@ class GameBoardWidget(QtGui.QGraphicsView):
 
     def create_checker_board(self):
 
+        # TODO Cleaner implementation of passing in game board.
+        game_board = board.Board()
+        game_board.setup_new_game()
+
         redness = QtGui.QBrush(color=QtCore.Qt.darkRed)
         redness_pen = QtGui.QPen(color=QtCore.Qt.darkRed)
-        self.scene.addRect(10, 10, 50, 50, pen=redness_pen, brush=redness)
-        self.scene.addText('Hello world...')
+
+        # TODO Create a nicer board behind the "floating" squares
+        self.scene.addRect(-5, -5, 55 * 8 + 5, 55 * 8 + 5, pen=redness_pen, brush=redness)
+
+        for x in xrange(8):
+            for y in xrange(8):
+
+                board_coords = Coordinates(x=x, y=y)
+                current_coords = Coordinates(x=55 * board_coords.x, y=55 * board_coords.y)
+                self.scene.addRect(current_coords.x, current_coords.y, 50, 50, pen=redness_pen, brush=redness)
+
+                item = BoardSquare(board_coords, game_board)
+                item.setPos(current_coords.x, current_coords.y)
+                self.scene.addItem(item)
+
 
     # TODO Add in number of captured pieces and whose turn it is.
 
