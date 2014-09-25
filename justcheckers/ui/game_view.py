@@ -110,8 +110,6 @@ class BoardBackground(QtGui.QGraphicsItem):
 
 class GameBoardWidget(QtGui.QGraphicsView):
 
-    mouse_move = QtCore.Signal(int, int)
-
     def __init__(self, scene):
         super(GameBoardWidget, self).__init__(scene)
         self.scene = scene
@@ -136,14 +134,6 @@ class GameBoardWidget(QtGui.QGraphicsView):
 
     # TODO Add in number of captured pieces and whose turn it is.
 
-    def mouseMoveEvent(self, event):
-        # msg = '({}, {})'.format(event.x(), event.y())
-        # self.mouse_move.emit(msg)
-        self.mouse_move.emit(event.x(), event.y())
-
-    def mousePressEvent(self, event):
-        self.mouse_move.emit(event.x(), event.y())
-
 
 class GameView(QtGui.QWidget):
     """Game viewer for the game's license, etc."""
@@ -158,7 +148,6 @@ class GameView(QtGui.QWidget):
     def setup_components(self):
         self.game_board_scene = QtGui.QGraphicsScene()
         self.game_board_widget = GameBoardWidget(self.game_board_scene)
-        self.game_board_widget.mouse_move.connect(self.update_coordinates)
 
         self.game_board_widget.setBackgroundBrush(QtGui.QBrush(QtGui.QColor(QtCore.Qt.green)))
         self.game_board_widget.create_checker_board()
@@ -170,10 +159,7 @@ class GameView(QtGui.QWidget):
         widget_layout = QtGui.QVBoxLayout(self)
         widget_layout.addWidget(self.game_board_widget)
 
-        self.coordinate_label = QtGui.QLabel('Coords: ')
-
         button_row = QtGui.QHBoxLayout(self)
-        button_row.addWidget(self.coordinate_label)
         button_row.addWidget(exit_button)
 
         widget_layout.addLayout(button_row)
@@ -182,10 +168,3 @@ class GameView(QtGui.QWidget):
 
     def switch_to_menu_view(self):
         self.parentWidget().setCurrentIndex(0)
-
-    @QtCore.Slot(int, int)
-    def update_coordinates(self, x, y):
-        self.spaces_moved += 1
-        text = 'Coords: {} {} - Moved: {}'.format(x, y, self.spaces_moved)
-        self.coordinate_label.setText(text)
-        self.update()
