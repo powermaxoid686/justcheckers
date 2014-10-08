@@ -126,9 +126,6 @@ class GameBoardWidget(QtGui.QGraphicsView):
             for column in xrange(8):
                 board_coords = Coordinates(x=column, y=row)
                 current_coords = Coordinates(x=55 * board_coords.x, y=55 * board_coords.y)
-
-                print("{}x{} = board, {}, {} = real".format(board_coords.x, board_coords.y, current_coords.x, current_coords.y))
-
                 item = BoardSquare(board_coords, game_board, parent=board_background)
                 item.setPos(-1 * current_coords.x, -1 * current_coords.y)
 

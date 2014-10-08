@@ -1,0 +1,4 @@
+include justcheckers/assets/*.md
+include justcheckers/images/*.png
+include justcheckers/images/*.jpg
+include requirements.txt

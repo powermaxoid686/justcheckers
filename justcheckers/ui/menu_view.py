@@ -90,4 +90,4 @@ class MainMenuView(QtGui.QWidget):
         self.parentWidget().setCurrentIndex(1)
 
     def switch_to_game_view(self):
-            self.parentWidget().setCurrentIndex(2)
+        self.parentWidget().setCurrentIndex(2)
