@@ -48,7 +48,7 @@ class BoardSquare(QtGui.QGraphicsItem):
         self.game_board = game_board
 
     def boundingRect(self):
-        return QtCore.QRectF(-15, -50, 30, 50)
+        return QtCore.QRectF(0, 0, 50, 50)
 
     def paint(self, painter, option, widget=None):
 
@@ -92,7 +92,8 @@ class BoardBackground(QtGui.QGraphicsItem):
         self.board_size = board_size
 
     def boundingRect(self):
-        return QtCore.QRectF(-15, -50, 30, 50)
+        board_side_size = (55 * self.board_size) + 10
+        return QtCore.QRectF(0, 0, board_side_size, board_side_size)
 
     def paint(self, painter, option, widget=None):
         pixel_dimensions = 55 * self.board_size
@@ -127,7 +128,8 @@ class GameBoardWidget(QtGui.QGraphicsView):
                 board_coords = Coordinates(x=column, y=row)
                 current_coords = Coordinates(x=55 * board_coords.x, y=55 * board_coords.y)
                 item = BoardSquare(board_coords, game_board, parent=board_background)
-                item.setPos(-1 * current_coords.x, -1 * current_coords.y)
+                # item.setPos(-1 * current_coords.x, -1 * current_coords.y)
+                self.scene.addItem(item)
 
     # TODO Add in number of captured pieces and whose turn it is.
 
